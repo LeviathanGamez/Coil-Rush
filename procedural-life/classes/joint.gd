@@ -1,13 +1,18 @@
 class_name Joint
 
 var position : Vector2
-var velocity : Vector2
 var direction : Vector2
 var distance = 100
-
+var radius := Manager.radius
 func _init(pos: Vector2):
 	position = pos
-	velocity = Vector2(60,60)
 	
 func update(parent,delta: float):
-	position = parent.position + (position-parent.position).normalized() * distance
+	direction = (position-parent.position).normalized() 
+	position = parent.position + direction * distance
+
+	
+func get_sides() -> Array[Vector2]:
+	var side_left = position + direction.rotated(-PI/2) * radius
+	var side_right = position + direction.rotated(PI/2) * radius
+	return [side_left,side_right]
