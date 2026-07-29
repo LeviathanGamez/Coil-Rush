@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dayetbey1huwv"]
+
+[ext_resource type="PackedScene" uid="uid://dgg0k1g5h05xn" path="res://entities/snake/fish.tscn" id="1_o5qli"]
+
+[node name="Main" type="Node2D" unique_id=1662933116]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=358829658]
+
+[node name="fish" parent="." unique_id=1000303128 instance=ExtResource("1_o5qli")]
