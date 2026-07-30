@@ -2,7 +2,7 @@ extends Node2D
 
 var anchor := Vector2(30,30)
 var radius := Manager.radius
-var joint_count : int = 30
+var joint_count := Manager.joint_count
 var joints : Array = []
 var head_joints : Array
 var head : Head

@@ -29,3 +29,9 @@ func get_sides() -> Array[Vector2]:
 	var side_left = position + direction.rotated(PI/2) * radius
 	var side_right = position + direction.rotated(-PI/2) * radius
 	return [side_left,side_right]
+	
+func get_eyes() -> Array[Vector2]:
+	
+	var side_left = position + direction.rotated(PI/4) * radius
+	var side_right = position + direction.rotated(-PI/4) * radius
+	return [side_left,side_right]
