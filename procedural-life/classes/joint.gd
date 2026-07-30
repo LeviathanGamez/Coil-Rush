@@ -2,10 +2,12 @@ class_name Joint
 
 var position : Vector2
 var direction : Vector2
-var distance = 100
-var radius := Manager.radius
-func _init(pos: Vector2):
+var distance = Manager.distance
+var radius : float
+
+func _init(pos: Vector2, radi: float):
 	position = pos
+	radius = radi
 	
 func update(parent,delta: float):
 	direction = (position-parent.position).normalized() 

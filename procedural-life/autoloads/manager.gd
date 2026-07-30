@@ -1,3 +1,4 @@
 extends Node
 
-var radius := 5
+var radius := 20
+var distance := 50
