@@ -5,6 +5,7 @@ var direction : Vector2
 var mouse_lerp : float = 0.1
 var distance : float = 10
 var radius : float 
+
 #for big circle movement
 var count := 0
 var big_radius := 350
@@ -16,7 +17,9 @@ func _init(pos: Vector2, radi: float):
 func update(mouse_pos : Vector2):
 	count += 2
 	#var old_direction = direction
-	mouse_pos = Vector2(cos(deg_to_rad(count))*big_radius,sin(deg_to_rad(count))*big_radius)
+	if not Manager.mouse_mode:
+		mouse_lerp = 0.05
+		mouse_pos = Vector2(cos(deg_to_rad(count))*big_radius,sin(deg_to_rad(count))*big_radius)
 	direction = (mouse_pos - position).normalized()
 	#var angle_diff = direction.angle_to(old_direction)
 	#if abs(angle_diff) > PI/8:

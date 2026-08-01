@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dn3n7e33fcpsu"]
+
+[ext_resource type="Script" uid="uid://bn1wfllljid52" path="res://entities/lizard/lizard.gd" id="1_tvi1k"]
+[ext_resource type="Shader" uid="uid://c2coy3c3nmdpq" path="res://shaders/snake_2.gdshader" id="2_u2a73"]
+[ext_resource type="Texture2D" uid="uid://0v42eae1mvn2" path="res://entities/snake2/skins/skin3.png" id="3_6f1bv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u2a73"]
+shader = ExtResource("2_u2a73")
+shader_parameter/Color1 = Color(0.34765625, 0.28133547, 0.12425995, 1)
+shader_parameter/Color2 = Color(1, 0.6618881, 0.048828125, 1)
+shader_parameter/Color3 = Color(0, 0, 0, 1)
+shader_parameter/border_widtha = 0
+shader_parameter/border_widthb = 0
+
+[sub_resource type="Curve" id="Curve_8ytmk"]
+_limits = [0.0, 2.5, 0.0, 1.0]
+_data = [Vector2(0, 2.5), 0.0, 2.5270314, 0, 0, Vector2(1, 0.81692934), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="lizard" type="Node2D" unique_id=1050090470]
+script = ExtResource("1_tvi1k")
+
+[node name="body" type="Line2D" parent="." unique_id=682452765]
+material = SubResource("ShaderMaterial_u2a73")
+points = PackedVector2Array(728, -4, 238, 0, 0, 0)
+width_curve = SubResource("Curve_8ytmk")
+texture = ExtResource("3_6f1bv")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
