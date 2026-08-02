@@ -37,6 +37,13 @@ func update(mouse_pos : Vector2, delta):
 	#var target_position = mouse_pos - direction * distance
 	#position += (target_position-position) * mouse_lerp
 	position += direction * speed * delta
+	if position.x > 576 or position.x < -576:
+		kill()
+	if position.y > 324 or position.y < -324:
+		kill()
+		
+func kill():
+	print("im dead")
 	
 func get_sides() -> Array[Vector2]:
 	

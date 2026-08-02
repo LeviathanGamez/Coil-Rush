@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmltvg127tjp7"
-path="res://.godot/imported/eye.png-6a49a9cb99f7cce491dfe78b368faf96.ctex"
+uid="uid://bs75o4lkbxxic"
+path="res://.godot/imported/eye_ball.png-85c46a39a1ecea7c2de7e76988f32988.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/snake2/eye.png"
-dest_files=["res://.godot/imported/eye.png-6a49a9cb99f7cce491dfe78b368faf96.ctex"]
+source_file="res://entities/snake2/skins/eye_ball.png"
+dest_files=["res://.godot/imported/eye_ball.png-85c46a39a1ecea7c2de7e76988f32988.ctex"]
 
 [params]
 

@@ -4,6 +4,8 @@ extends Node2D
 @onready var eye2 : Sprite2D = $eye2
 @onready var eye_ball1 : Sprite2D = $eye_ball1
 @onready var eye_ball2 : Sprite2D = $eye_ball2
+@onready var collision : CollisionShape2D = $Area2D/CollisionShape2D
+
 var anchor := Vector2(30,30)
 var radius := Manager.radius
 var joint_count := Manager.joint_count
@@ -17,6 +19,8 @@ func _ready() -> void:
 	head = Head.new(Vector2(0,0),radius)
 	make_joints()
 	Manager.make_more_joints.connect(make_joints)
+	collision.shape.radius = int(radius)
+	
 	
 func make_joints():
 	radius  =  Manager.radius
@@ -36,6 +40,7 @@ func _process(delta: float) -> void:
 	
 func update_head(mouse_pos : Vector2,delta: float):
 	head.update(mouse_pos,delta)
+	collision.global_position = head.position
 	
 func update_joints(delta):
 	for i in range(len(joints)):

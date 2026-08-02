@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://lxbcrx4efoj0"]
+
+[ext_resource type="Script" uid="uid://dk8uuhogm8fwd" path="res://fruits/fruit.gd" id="1_2xkbo"]
+[ext_resource type="Resource" uid="uid://b0an2qlmv2c7r" path="res://fruits/resource/cactus_fruit.tres" id="2_7xsvw"]
+[ext_resource type="Texture2D" uid="uid://dsodnquss0grv" path="res://fruits/types/cactus_fruit.png" id="3_i80ya"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3381y"]
+radius = 29.0
+
+[node name="cactus_fruit" type="Node2D" unique_id=608758165]
+script = ExtResource("1_2xkbo")
+stats = ExtResource("2_7xsvw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=840507853]
+scale = Vector2(2, 2)
+texture = ExtResource("3_i80ya")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=116234004]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1433735140]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_3381y")

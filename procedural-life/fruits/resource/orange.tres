@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FruitType" format=3 uid="uid://3ovva4ar61bh"]
+
+[ext_resource type="Script" uid="uid://d5fqlc4yp2bs" path="res://fruits/resource/fruit_type.gd" id="1_bur7o"]
+[ext_resource type="Texture2D" uid="uid://ddotn6pl40wdx" path="res://fruits/types/orange.png" id="2_ji8qn"]
+
+[resource]
+script = ExtResource("1_bur7o")
+type = 1
+radius_plus = 2.0
+sprite = ExtResource("2_ji8qn")
+metadata/_custom_type_script = "uid://d5fqlc4yp2bs"

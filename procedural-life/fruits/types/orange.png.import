@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs75o4lkbxxic"
-path="res://.godot/imported/eye_ball.png-c0990e24ce5e4858b09e739467f0c439.ctex"
+uid="uid://ddotn6pl40wdx"
+path="res://.godot/imported/orange.png-758af08ce7bfe6cc70d58ac9f9e4ff6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/snake2/eye_ball.png"
-dest_files=["res://.godot/imported/eye_ball.png-c0990e24ce5e4858b09e739467f0c439.ctex"]
+source_file="res://fruits/types/orange.png"
+dest_files=["res://.godot/imported/orange.png-758af08ce7bfe6cc70d58ac9f9e4ff6d.ctex"]
 
 [params]
 

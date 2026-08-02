@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dr5hq35q03afq"]
+
+[ext_resource type="Script" uid="uid://dk8uuhogm8fwd" path="res://fruits/fruit.gd" id="1_d2ni0"]
+[ext_resource type="Resource" uid="uid://b7nl5dq7ksk7m" path="res://fruits/resource/prickly_pear.tres" id="2_jhd07"]
+[ext_resource type="Texture2D" uid="uid://hjg5p1igehvw" path="res://fruits/types/prickly_pear.png" id="3_8cchq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3381y"]
+radius = 25.0
+height = 60.0
+
+[node name="prickly_pear" type="Node2D" unique_id=1049163394]
+script = ExtResource("1_d2ni0")
+stats = ExtResource("2_jhd07")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=866660693]
+scale = Vector2(2, 2)
+texture = ExtResource("3_8cchq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2075821524]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=910815450]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_3381y")

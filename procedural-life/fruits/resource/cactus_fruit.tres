@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FruitType" format=3 uid="uid://b0an2qlmv2c7r"]
+
+[ext_resource type="Script" uid="uid://d5fqlc4yp2bs" path="res://fruits/resource/fruit_type.gd" id="1_dofss"]
+[ext_resource type="Texture2D" uid="uid://dsodnquss0grv" path="res://fruits/types/cactus_fruit.png" id="2_mk4kl"]
+
+[resource]
+script = ExtResource("1_dofss")
+length_plus = 1
+sprite = ExtResource("2_mk4kl")
+metadata/_custom_type_script = "uid://d5fqlc4yp2bs"
