@@ -18,7 +18,7 @@ func update(parent,delta: float):
 	var normal = Vector2(-direction.y,direction.x)
 	
 	var t = Time.get_ticks_msec()/1000
-	var wave = sin(t * 100 + index * 0.4) * 0.1
+	var wave = sin(t * 1000 + index * 0.4) * 0.1
 	direction = direction.rotated(wave)
 	position = parent.position + direction * distance
 	
