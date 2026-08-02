@@ -1,9 +1,9 @@
 extends Node
 
 signal make_more_joints
-var radius : int = 10
-var distance : int = 25
-var joint_count : int = 30
+var radius : int = 20
+var distance : int = 20
+var joint_count : int = 50
 var modes = ["snake","lizard"]
 var mode = modes[1]
 var mouse_mode = true

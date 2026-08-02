@@ -2,6 +2,8 @@ extends Node2D
 @onready var body : Line2D = $body
 @onready var eye1 : Sprite2D = $eye1
 @onready var eye2 : Sprite2D = $eye2
+@onready var eye_ball1 : Sprite2D = $eye_ball1
+@onready var eye_ball2 : Sprite2D = $eye_ball2
 var anchor := Vector2(30,30)
 var radius := Manager.radius
 var joint_count := Manager.joint_count
@@ -9,6 +11,7 @@ var joints : Array = []
 var head_joints : Array
 var head : Head
 var colors : Array = [Color.RED,Color.ORANGE,Color.YELLOW,Color.GREEN,Color.CYAN,Color.BLUE,Color.PURPLE,Color.DEEP_PINK]
+var eyeball_movement = 0.007
 
 func _ready() -> void:
 	head = Head.new(Vector2(0,0),radius)
@@ -26,13 +29,13 @@ func make_joints():
 	head_joints.push_front(head)
 
 func _process(delta: float) -> void:
-	update_head(get_global_mouse_position())
+	update_head(get_global_mouse_position(),delta)
 	update_joints(delta)
 	collision_check()
 	draw_points()
 	
-func update_head(mouse_pos : Vector2):
-	head.update(mouse_pos)
+func update_head(mouse_pos : Vector2,delta: float):
+	head.update(mouse_pos,delta)
 	
 func update_joints(delta):
 	for i in range(len(joints)):
@@ -43,8 +46,13 @@ func draw_points():
 	body.add_point(head.position,0)
 	for i in range(len(joints)):
 		body.add_point(joints[i].position,i+1)
-	eye1.global_position = head.get_eyes()[0]
-	eye2.global_position = head.get_eyes()[1]
+	var mouse_pos = get_global_mouse_position()
+	var eye1_pos = head.get_eyes()[0]
+	var eye2_pos = head.get_eyes()[1]
+	eye1.global_position = eye1_pos 
+	eye2.global_position = eye2_pos 
+	eye_ball1.global_position = eye1_pos + (mouse_pos-eye1_pos)* eyeball_movement
+	eye_ball2.global_position = eye2_pos + (mouse_pos-eye2_pos)* eyeball_movement
 
 func collision_check():
 	var collision
@@ -52,5 +60,5 @@ func collision_check():
 		if joint.position.distance_squared_to(head.position) < radius * radius+5:
 			collision = true
 	
-	if collision:
-		queue_free()
+	#if collision:
+#		queue_free()
