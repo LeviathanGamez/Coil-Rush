@@ -18,6 +18,10 @@ var last_mouse_pos : Vector2
 func _init(pos: Vector2, radi: float):
 	position = pos
 	radius = radi
+	Manager.make_more_joints.connect(update_vairables)
+
+func update_vairables():
+	speed = Manager.speed
 	
 func update(mouse_pos : Vector2, delta):
 	count += 2

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://clwu34rrp4p0w"]
+
+[ext_resource type="Texture2D" uid="uid://dsodnquss0grv" path="res://fruits/types/cactus_fruit.png" id="1_1gfn5"]
+[ext_resource type="Script" uid="uid://dq4h506vbuswp" path="res://particles/fruit_particles.gd" id="2_8tsi5"]
+
+[sub_resource type="Curve" id="Curve_3381y"]
+_data = [Vector2(0.012820512, 0.048859954), 0.0, 3.871567, 0, 0, Vector2(0.49038464, 0.6449511), 0.0, 0.0, 0, 0, Vector2(1, 0.9967426), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="FruitParticles" type="CPUParticles2D" unique_id=879729058]
+modulate = Color(1, 0.984375, 0, 0.56078434)
+emitting = false
+amount = 9
+texture = ExtResource("1_1gfn5")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+scale_amount_curve = SubResource("Curve_3381y")
+script = ExtResource("2_8tsi5")

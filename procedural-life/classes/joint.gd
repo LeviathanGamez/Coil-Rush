@@ -12,6 +12,10 @@ func _init(pos: Vector2, radi: float):
 	radius = radi
 	index = global_index
 	global_index += 1
+	Manager.make_more_joints.connect(update_vairables)
+
+func update_vairables():
+	distance = Manager.distance
 	
 func update(parent,delta: float):
 	direction = (position-parent.position).normalized() 

@@ -9,4 +9,5 @@ enum Types {
 @export var type : Types
 @export var radius_plus : float
 @export var length_plus : int
+@export var distance_plus : float
 @export var speed_plus : float

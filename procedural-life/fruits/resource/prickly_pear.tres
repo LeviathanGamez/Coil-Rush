@@ -1,11 +1,9 @@
 [gd_resource type="Resource" script_class="FruitType" format=3 uid="uid://b7nl5dq7ksk7m"]
 
-[ext_resource type="Script" uid="uid://d5fqlc4yp2bs" path="res://fruits/resource/fruit_type.gd" id="1_celxa"]
-[ext_resource type="Texture2D" uid="uid://hjg5p1igehvw" path="res://fruits/types/prickly_pear.png" id="2_2rlak"]
+[ext_resource type="Script" uid="uid://d5fqlc4yp2bs" path="res://fruits/resource/fruit_type.gd" id="1_hi1ow"]
 
 [resource]
-script = ExtResource("1_celxa")
+script = ExtResource("1_hi1ow")
 type = 2
-speed_plus = 0.5
-sprite = ExtResource("2_2rlak")
+speed_plus = 1.0
 metadata/_custom_type_script = "uid://d5fqlc4yp2bs"

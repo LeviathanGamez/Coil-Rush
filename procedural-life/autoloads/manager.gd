@@ -11,11 +11,15 @@ var mouse_mode = true
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
-		print("ye")
-		joint_count += 1
-		radius += 1
-		distance += 1
-		make_more_joints.emit()
+		update_variables(1,1,1)
+	
+func update_variables(joint_plus,radius_plus,distance_plus):
+	print("vars",joint_count,radius,distance)
+	joint_count += joint_plus
+	radius += radius_plus
+	distance += distance_plus
+	print("vars after",joint_count,radius,distance)
+	make_more_joints.emit()
 		
 #func _ready():
 #	if mode == "snake":

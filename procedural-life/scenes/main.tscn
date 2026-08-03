@@ -47,3 +47,5 @@ position = Vector2(-191, -167)
 
 [node name="prickly_pear" parent="." unique_id=1049163394 instance=ExtResource("5_o6xl0")]
 position = Vector2(-224, 148)
+
+[node name="Particles" type="Node" parent="." unique_id=1579334077]

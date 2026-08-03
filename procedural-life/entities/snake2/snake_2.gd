@@ -25,9 +25,18 @@ func _ready() -> void:
 func make_joints():
 	radius  =  Manager.radius
 	joint_count = Manager.joint_count
+	var temp_joints = joints.duplicate()
 	joints = []
-	for i in range(joint_count):
-		joints.append(Joint.new(Vector2(20*i,20*i),radius-i/2))
+	if temp_joints.size() == 0:
+		for i in range(joint_count):
+			joints.append(Joint.new(Vector2(20*i,20*i),radius-i/2))
+	else:
+		for i in range(joint_count):
+			if i >= temp_joints.size():
+				joints.append(Joint.new(temp_joints[i-1].position+Vector2(10,10),radius-i/2))
+			else:
+				joints.append(Joint.new(temp_joints[i].position,radius-i/2))
+			
 	head_joints = joints.duplicate()
 	head_joints.pop_back()
 	head_joints.push_front(head)
