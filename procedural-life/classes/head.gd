@@ -6,7 +6,7 @@ var mouse_lerp : float = 0.05
 var distance : float = 30
 var radius : float 
 # 3 is ez, 5 normal, 7 fast
-var speed : float = 60 * 7
+var speed : float = 60 * Manager.speed
 #for big circle movement
 var count := 0
 var big_radius := 350
@@ -21,8 +21,7 @@ func _init(pos: Vector2, radi: float):
 	Manager.make_more_joints.connect(update_vairables)
 
 func update_vairables():
-	speed = Manager.speed
-	
+	speed = 60 * Manager.speed
 func update(mouse_pos : Vector2, delta):
 	count += 2
 	#var old_direction = direction
