@@ -5,6 +5,9 @@ extends Node2D
 @onready var eye_ball1 : Sprite2D = $eye_ball1
 @onready var eye_ball2 : Sprite2D = $eye_ball2
 @onready var collision : CollisionShape2D = $Area2D/CollisionShape2D
+@onready var outline : Line2D = $Outline
+
+var outline_width = 6
 
 var anchor := Vector2(30,30)
 var radius := Manager.radius
@@ -46,6 +49,8 @@ func _process(delta: float) -> void:
 	update_joints(delta)
 	collision_check()
 	draw_points()
+	outline.width = body.width + outline_width
+	outline.points = body.points
 	
 func update_head(mouse_pos : Vector2,delta: float):
 	head.update(mouse_pos,delta)

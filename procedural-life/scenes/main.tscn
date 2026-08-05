@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c2m23uudgmpow" path="res://fruits/orange.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://lxbcrx4efoj0" path="res://fruits/cactus_fruit.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dr5hq35q03afq" path="res://fruits/prickly_pear.tscn" id="5_o6xl0"]
+[ext_resource type="Script" uid="uid://qkcur6q4ddkw" path="res://scripts/spawner.gd" id="6_o6xl0"]
 [ext_resource type="FontFile" uid="uid://b80ns8fksh5q" path="res://assets/ARCADECLASSIC.TTF" id="6_tefeu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o5qli"]
@@ -25,10 +26,22 @@ repeat = 2
 
 [node name="Main" type="Node2D" unique_id=1662933116]
 
+[node name="Fruits" type="Node" parent="." unique_id=1760511065]
+
+[node name="orange" parent="Fruits" unique_id=1414971797 instance=ExtResource("3_tbgi4")]
+position = Vector2(-252, 76)
+
+[node name="cactus_fruit" parent="Fruits" unique_id=608758165 instance=ExtResource("4_tefeu")]
+position = Vector2(-191, -167)
+
+[node name="prickly_pear" parent="Fruits" unique_id=1049163394 instance=ExtResource("5_o6xl0")]
+position = Vector2(-224, 148)
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=358829658]
 zoom = Vector2(0.7, 0.7)
 
 [node name="snake2" parent="." unique_id=274647588 instance=ExtResource("1_o5qli")]
+z_index = 10
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=843239813]
 z_index = -1
@@ -40,30 +53,25 @@ offset_bottom = 581.0
 texture = SubResource("GradientTexture2D_3381y")
 
 [node name="Spawner" type="Node" parent="." unique_id=221507695]
+script = ExtResource("6_o6xl0")
 
-[node name="orange" parent="." unique_id=1414971797 instance=ExtResource("3_tbgi4")]
-position = Vector2(-252, 76)
-
-[node name="cactus_fruit" parent="." unique_id=608758165 instance=ExtResource("4_tefeu")]
-position = Vector2(-191, -167)
-
-[node name="prickly_pear" parent="." unique_id=1049163394 instance=ExtResource("5_o6xl0")]
-position = Vector2(-224, 148)
+[node name="Timer" type="Timer" parent="Spawner" unique_id=2045700166]
+one_shot = true
 
 [node name="Particles" type="Node" parent="." unique_id=1579334077]
 
-[node name="UI" type="Control" parent="." unique_id=772036962]
+[node name="UI" type="Control" parent="." unique_id=1284866535]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="UI" unique_id=109823489]
 layout_mode = 0
-offset_left = -796.0
-offset_top = -445.0
-offset_right = -582.0
-offset_bottom = -402.0
+offset_left = -159.0
+offset_top = -496.0
+offset_right = 163.0
+offset_bottom = -433.0
 theme_override_fonts/font = ExtResource("6_tefeu")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 60
 text = "Score: 1000"
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

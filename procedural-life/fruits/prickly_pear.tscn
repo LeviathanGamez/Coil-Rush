@@ -8,6 +8,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mq8j2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7xsvw"]
+resource_local_to_scene = true
 shader = ExtResource("1_jhd07")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/corner_pixel = true
@@ -21,7 +22,7 @@ material = SubResource("ShaderMaterial_mq8j2")
 script = ExtResource("1_d2ni0")
 stats = ExtResource("2_jhd07")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=866660693]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=866660693 groups=["Fruits"]]
 material = SubResource("ShaderMaterial_7xsvw")
 scale = Vector2(2, 2)
 texture = ExtResource("3_8cchq")

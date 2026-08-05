@@ -14,7 +14,7 @@ shader_parameter/corner_pixel = true
 [sub_resource type="CircleShape2D" id="CircleShape2D_3381y"]
 radius = 29.0
 
-[node name="cactus_fruit" type="Node2D" unique_id=608758165]
+[node name="cactus_fruit" type="Node2D" unique_id=608758165 groups=["Fruits"]]
 script = ExtResource("1_2xkbo")
 stats = ExtResource("2_7xsvw")
 
