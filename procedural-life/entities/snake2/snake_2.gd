@@ -6,6 +6,7 @@ extends Node2D
 @onready var eye_ball2 : Sprite2D = $eye_ball2
 @onready var collision : CollisionShape2D = $Area2D/CollisionShape2D
 @onready var outline : Line2D = $Outline
+@onready var circle_collision : CollisionShape2D = $Area2D/CollisionShape2D
 
 var outline_width = 6
 
@@ -27,6 +28,7 @@ func _ready() -> void:
 	
 func make_joints():
 	radius  =  Manager.radius
+	(circle_collision.shape as CircleShape2D).radius = Manager.radius -10
 	body.width = Manager.width
 	joint_count = Manager.joint_count
 	var temp_joints = joints.duplicate()
@@ -50,7 +52,6 @@ func _process(delta: float) -> void:
 	update_joints(delta)
 	collision_check()
 	draw_points()
-	print("out",outline.width,"body",body.width)
 	outline.width = body.width + outline_width
 	outline.points = body.points
 	
