@@ -19,7 +19,8 @@ shader_parameter/border_widthb = 0
 [sub_resource type="CircleShape2D" id="CircleShape2D_3381y"]
 
 [sub_resource type="Curve" id="Curve_30lwm"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.24468085, 0.8858268), 0.0, 0.0, 0, 0, Vector2(1, 0.56692916), 0.0, 0.0, 0, 0]
+_limits = [0.0, 1.1, 0.0, 1.0]
+_data = [Vector2(0, 1.0217779), 0.0, 0.0, 0, 0, Vector2(0.3025751, 0.9655556), 0.0, 0.0, 0, 0, Vector2(1, 0.56692916), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [node name="snake2" type="Node2D" unique_id=274647588]

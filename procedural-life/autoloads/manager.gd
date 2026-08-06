@@ -4,6 +4,7 @@ signal make_more_joints
 var radius : int = 20
 var distance : int = 10
 var joint_count : int = 10
+var width : int = 10
 var speed : float = 3
 var modes = ["snake","lizard"]
 var mode = modes[1]
@@ -15,12 +16,11 @@ func _input(event: InputEvent) -> void:
 		update_variables(1,1,1,0.5)
 	
 func update_variables(joint_plus,radius_plus,distance_plus,speed_plus):
-	print("vars",joint_count,radius,distance)
 	joint_count += joint_plus
-	radius += radius_plus
 	distance += distance_plus
 	speed += speed_plus
-	print("vars after",joint_count,radius,distance)
+	width += radius_plus
+	radius += radius_plus 
 	make_more_joints.emit()
 		
 #func _ready():

@@ -27,6 +27,7 @@ func _ready() -> void:
 	
 func make_joints():
 	radius  =  Manager.radius
+	body.width = Manager.width
 	joint_count = Manager.joint_count
 	var temp_joints = joints.duplicate()
 	joints = []
@@ -49,6 +50,7 @@ func _process(delta: float) -> void:
 	update_joints(delta)
 	collision_check()
 	draw_points()
+	print("out",outline.width,"body",body.width)
 	outline.width = body.width + outline_width
 	outline.points = body.points
 	

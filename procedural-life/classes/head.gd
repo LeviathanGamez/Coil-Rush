@@ -4,7 +4,6 @@ var position : Vector2
 var direction : Vector2
 var mouse_lerp : float = 0.05
 var distance : float = 30
-var radius : float 
 # 3 is ez, 5 normal, 7 fast
 var speed : float = 60 * Manager.speed
 #for big circle movement
@@ -17,7 +16,6 @@ var last_mouse_pos : Vector2
 
 func _init(pos: Vector2, radi: float):
 	position = pos
-	radius = radi
 	Manager.make_more_joints.connect(update_vairables)
 
 func update_vairables():
@@ -50,12 +48,12 @@ func kill():
 	
 func get_sides() -> Array[Vector2]:
 	
-	var side_left = position + direction.rotated(PI/2) * radius
-	var side_right = position + direction.rotated(-PI/2) * radius
+	var side_left = position + direction.rotated(PI/2) * Manager.radius
+	var side_right = position + direction.rotated(-PI/2) * Manager.radius
 	return [side_left,side_right]
 	
 func get_eyes() -> Array[Vector2]:
 	
-	var side_left = position + direction.rotated(PI/4) * radius / eye_closeness
-	var side_right = position + direction.rotated(-PI/4) * radius / eye_closeness
+	var side_left = position + direction.rotated(PI/4) * Manager.radius / eye_closeness
+	var side_right = position + direction.rotated(-PI/4) * Manager.radius / eye_closeness
 	return [side_left,side_right]
