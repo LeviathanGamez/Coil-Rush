@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dr5hq35q03afq" path="res://fruits/prickly_pear.tscn" id="5_o6xl0"]
 [ext_resource type="Script" uid="uid://qkcur6q4ddkw" path="res://scripts/spawner.gd" id="6_o6xl0"]
 [ext_resource type="FontFile" uid="uid://b80ns8fksh5q" path="res://assets/ARCADECLASSIC.TTF" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://b4ffcybwm5012" path="res://scripts/label.gd" id="8_tipki"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o5qli"]
 shader = ExtResource("2_0wfyh")
@@ -37,19 +38,16 @@ position = Vector2(-191, -167)
 [node name="prickly_pear" parent="Fruits" unique_id=1049163394 instance=ExtResource("5_o6xl0")]
 position = Vector2(-224, 148)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=358829658]
-zoom = Vector2(0.7, 0.7)
-
 [node name="snake2" parent="." unique_id=274647588 instance=ExtResource("1_o5qli")]
 z_index = 10
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=843239813]
 z_index = -1
 material = SubResource("ShaderMaterial_o5qli")
-offset_left = -849.0
-offset_top = -552.0
-offset_right = 851.0
-offset_bottom = 581.0
+offset_left = -1655.0
+offset_top = -1106.0
+offset_right = 1309.0
+offset_bottom = 773.0
 texture = SubResource("GradientTexture2D_3381y")
 
 [node name="Spawner" type="Node" parent="." unique_id=221507695]
@@ -64,14 +62,87 @@ one_shot = true
 layout_mode = 3
 anchors_preset = 0
 
-[node name="Label" type="Label" parent="UI" unique_id=109823489]
+[node name="Score" type="Label" parent="UI" unique_id=109823489]
 layout_mode = 0
-offset_left = -159.0
-offset_top = -496.0
-offset_right = 163.0
-offset_bottom = -433.0
+offset_left = -214.0
+offset_top = -500.0
+offset_right = 214.0
+offset_bottom = -416.0
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 80
+text = "Score: 1000"
+script = ExtResource("8_tipki")
+
+[node name="ComboRect" type="ColorRect" parent="UI" unique_id=856001409]
+z_index = 2
+layout_mode = 0
+offset_left = -823.0
+offset_top = -518.0
+offset_right = -546.0
+offset_bottom = -462.0
+color = Color(0.5921569, 0.5921569, 0.5921569, 0.654902)
+
+[node name="Combo" type="Label" parent="UI/ComboRect" unique_id=1426192053]
+z_index = 12
+z_as_relative = false
+layout_mode = 0
+offset_left = 22.0
+offset_top = -1.0
+offset_right = 261.0
+offset_bottom = 259.0
 theme_override_fonts/font = ExtResource("6_tefeu")
 theme_override_font_sizes/font_size = 60
-text = "Score: 1000"
+text = "Combo X1"
+
+[node name="Combotimer" type="Timer" parent="UI/ComboRect" unique_id=383677483]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[node name="ComboRect2" type="ColorRect" parent="UI" unique_id=505235437]
+z_index = 2
+layout_mode = 0
+offset_left = -823.0
+offset_top = -518.0
+offset_right = -579.0
+offset_bottom = -462.0
+color = Color(0.99215686, 0.039215688, 0.81960785, 0.654902)
+
+[node name="CoolRect" type="ColorRect" parent="UI" unique_id=592377246]
+z_index = 2
+layout_mode = 0
+offset_left = -823.0
+offset_top = -462.0
+offset_right = -525.0
+offset_bottom = -408.0
+color = Color(0.18431373, 0.99215686, 0.22352941, 0.654902)
+
+[node name="Coolness" type="Label" parent="UI/CoolRect" unique_id=921673580]
+z_index = 12
+z_as_relative = false
+layout_mode = 0
+offset_left = 22.0
+offset_top = -1.0
+offset_right = 261.0
+offset_bottom = 259.0
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 60
+text = "Coolness"
+
+[node name="CoolnessTimer" type="Timer" parent="UI/CoolRect" unique_id=1268477617]
+wait_time = 6.0
+one_shot = true
+autostart = true
+
+[node name="CoolRect2" type="ColorRect" parent="UI" unique_id=442490102]
+z_index = 2
+layout_mode = 0
+offset_left = -823.0
+offset_top = -462.0
+offset_right = -526.0
+offset_bottom = -408.0
+color = Color(0.019607844, 0.9098039, 1, 0.654902)
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="UI/ComboRect/Combotimer" to="UI/Score" method="_on_combotimer_timeout"]
+[connection signal="timeout" from="UI/CoolRect/CoolnessTimer" to="UI/Score" method="_on_coolness_timer_timeout"]

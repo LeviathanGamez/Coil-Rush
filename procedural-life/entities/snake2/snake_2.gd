@@ -8,6 +8,7 @@ extends Node2D
 @onready var outline : Line2D = $Outline
 @onready var circle_collision : CollisionShape2D = $Area2D/CollisionShape2D
 
+
 var outline_width = 6
 
 var anchor := Vector2(30,30)
@@ -83,4 +84,7 @@ func collision_check():
 			collision = true
 	
 	#if collision:
-#		queue_free()
+	#	print("s")
+func kill():
+	print("SNAKE HAS DIED")
+	#queue_free()

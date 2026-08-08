@@ -6,6 +6,8 @@ extends Node2D
 @onready var particle_node : Node = $"../../Particles"
 @onready var snake = $"../../snake2"
 
+signal eat
+
 var fruit_particles = preload("res://particles/fruit_particles.tscn")
 
 func _ready():
@@ -23,6 +25,7 @@ func _process(_delta):
 
 func eaten(area: Area2D):
 	if area.get_parent().name == "snake2":
+		emit_signal("eat",stats.point_plus)
 		var fruit = fruit_particles.instantiate()
 		fruit.emitting = true
 		fruit.texture = sprite.texture

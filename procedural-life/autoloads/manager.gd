@@ -10,6 +10,8 @@ var modes = ["snake","lizard"]
 var mode = modes[1]
 var mouse_mode = true
 
+var score = 0	
+var combo = 1
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):

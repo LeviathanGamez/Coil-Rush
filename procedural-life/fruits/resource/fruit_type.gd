@@ -11,3 +11,4 @@ enum Types {
 @export var length_plus : int
 @export var distance_plus : float
 @export var speed_plus : float
+@export var point_plus : float

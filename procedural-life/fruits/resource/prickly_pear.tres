@@ -6,4 +6,5 @@
 script = ExtResource("1_hi1ow")
 type = 2
 speed_plus = 0.5
+point_plus = 500.0
 metadata/_custom_type_script = "uid://d5fqlc4yp2bs"
