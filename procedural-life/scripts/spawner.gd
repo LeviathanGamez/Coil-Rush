@@ -13,6 +13,7 @@ var artifacts = [coin,coin,coin,diamond,diamond,golden_scarab]
 @onready var artifact_node = $"../Artifacts"
 @onready var snake = $"../snake2"
 @onready var spawn_timer : Timer = $Timer
+@onready var pause_menu = $"../PauseMenu"
 var can_trigger = true
 var can_trigger2 = true
 
@@ -23,6 +24,15 @@ var old_artifact
 
 var x_bound = 730
 var y_bound = 370
+
+var activated = true
+func _ready():
+	get_tree().paused = false
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		pause_menu.visible = activated 
+		get_tree().paused = activated
 
 func _process(_delta):
 	if get_tree().get_nodes_in_group("Fruits").size() < 3 and can_trigger:

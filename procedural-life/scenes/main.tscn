@@ -12,6 +12,9 @@
 [ext_resource type="Script" uid="uid://b4ffcybwm5012" path="res://scripts/label.gd" id="8_tipki"]
 [ext_resource type="AudioStream" uid="uid://b04sg50qe15mh" path="res://assets/sound effects/coin-sfx.MP3" id="11_eb6dy"]
 [ext_resource type="AudioStream" uid="uid://b78vbm15nknc8" path="res://assets/sound effects/munch.MP3" id="12_trceg"]
+[ext_resource type="Script" uid="uid://co7wedrkc8wlj" path="res://scripts/retry_button.gd" id="13_trceg"]
+[ext_resource type="Script" uid="uid://tgbhygxd4gw7" path="res://scripts/main_menu_button.gd" id="14_a8y0u"]
+[ext_resource type="Script" uid="uid://b2kstuc0sokbi" path="res://scripts/resume.gd" id="15_jkv2x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o5qli"]
 shader = ExtResource("2_0wfyh")
@@ -28,6 +31,20 @@ gradient = SubResource("Gradient_choun")
 width = 1000
 height = 1000
 repeat = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eb6dy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trceg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a8y0u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkv2x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbj1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_muem4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dp3eg"]
 
 [node name="Main" type="Node2D" unique_id=1662933116]
 
@@ -55,13 +72,13 @@ color = Color(1, 0, 0, 0.27450982)
 [node name="Fruits" type="Node" parent="." unique_id=1760511065]
 
 [node name="orange" parent="Fruits" unique_id=1414971797 instance=ExtResource("3_tbgi4")]
-position = Vector2(-252, 76)
+position = Vector2(-573, 78)
 
 [node name="cactus_fruit" parent="Fruits" unique_id=608758165 instance=ExtResource("4_tefeu")]
-position = Vector2(-191, -167)
+position = Vector2(246, -334)
 
 [node name="prickly_pear" parent="Fruits" unique_id=1049163394 instance=ExtResource("5_o6xl0")]
-position = Vector2(-224, 148)
+position = Vector2(454, 226)
 
 [node name="Artifacts" type="Node" parent="." unique_id=1715580729]
 
@@ -78,6 +95,7 @@ offset_bottom = 939.5
 texture = SubResource("GradientTexture2D_3381y")
 
 [node name="Spawner" type="Node" parent="." unique_id=221507695]
+process_mode = 3
 script = ExtResource("6_o6xl0")
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=2045700166]
@@ -98,7 +116,7 @@ offset_bottom = -416.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_tefeu")
 theme_override_font_sizes/font_size = 80
-text = "Score: 1000"
+text = "Score: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("8_tipki")
@@ -181,7 +199,219 @@ offset_right = -527.0
 offset_bottom = -372.0
 color = Color(0.019607844, 0.9098039, 1, 0.654902)
 
+[node name="PauseMenu" type="Control" parent="." unique_id=645669291]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = -1.0
+offset_right = 40.0
+offset_bottom = 39.0
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=331777818]
+z_index = 1000
+layout_mode = 0
+offset_left = -1487.0
+offset_top = -941.0
+offset_right = 1490.0
+offset_bottom = 952.0
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Retry_button" type="Control" parent="PauseMenu" unique_id=1182710550]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="PauseMenu/Retry_button" unique_id=1016098889]
+z_index = 1001
+layout_mode = 0
+offset_left = -96.0
+offset_top = 18.0
+offset_right = 97.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 10
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eb6dy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_trceg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_a8y0u")
+text = "Retry"
+script = ExtResource("13_trceg")
+
+[node name="Main_Menu_button" type="Control" parent="PauseMenu" unique_id=689512933]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="PauseMenu/Main_Menu_button" unique_id=1934065758]
+z_index = 1001
+layout_mode = 0
+offset_left = -151.0
+offset_top = 142.0
+offset_right = 166.0
+offset_bottom = 213.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 10
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jkv2x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jbj1t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_muem4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dp3eg")
+text = "Main Menu"
+script = ExtResource("14_a8y0u")
+
+[node name="Resume" type="Button" parent="PauseMenu" unique_id=81961335]
+z_index = 1001
+layout_mode = 0
+offset_left = -113.0
+offset_top = -102.0
+offset_right = 118.0
+offset_bottom = -31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 10
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eb6dy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_trceg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_a8y0u")
+text = "Resume"
+script = ExtResource("15_jkv2x")
+
+[node name="Resume2" type="Label" parent="PauseMenu" unique_id=1304641871]
+z_index = 1001
+layout_mode = 0
+offset_left = -224.0
+offset_top = -323.0
+offset_right = 226.0
+offset_bottom = -242.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eb6dy")
+text = "Game Paused"
+
+[node name="Death_menu" type="Control" parent="." unique_id=1753686635]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = -1.0
+offset_right = 40.0
+offset_bottom = 39.0
+
+[node name="ColorRect" type="ColorRect" parent="Death_menu" unique_id=1217242215]
+z_index = 1000
+layout_mode = 0
+offset_left = -1487.0
+offset_top = -941.0
+offset_right = 1490.0
+offset_bottom = 952.0
+color = Color(0.20507813, 0, 0, 0.78431374)
+
+[node name="Retry_button" type="Control" parent="Death_menu" unique_id=739205816]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Death_menu/Retry_button" unique_id=852053195]
+z_index = 1001
+layout_mode = 0
+offset_left = -73.0
+offset_top = -26.0
+offset_right = 120.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 10
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eb6dy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_trceg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_a8y0u")
+text = "Retry"
+script = ExtResource("13_trceg")
+
+[node name="Main_Menu_button" type="Control" parent="Death_menu" unique_id=1558959285]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Death_menu/Main_Menu_button" unique_id=1245662631]
+z_index = 1001
+layout_mode = 0
+offset_left = -135.0
+offset_top = 112.0
+offset_right = 182.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 10
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jkv2x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jbj1t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_muem4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dp3eg")
+text = "Main Menu"
+script = ExtResource("14_a8y0u")
+
+[node name="Resume2" type="Label" parent="Death_menu" unique_id=878578605]
+z_index = 1001
+layout_mode = 0
+offset_left = -306.0
+offset_top = -368.0
+offset_right = 349.0
+offset_bottom = -226.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 140
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eb6dy")
+text = "You died!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume3" type="Label" parent="Death_menu" unique_id=308932841]
+z_index = 1001
+layout_mode = 0
+offset_left = -437.0
+offset_top = -228.0
+offset_right = 485.0
+offset_bottom = -81.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eb6dy")
+text = "Final Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="timeout" from="Difficulty/Timer" to="Difficulty" method="_on_timer_timeout"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="UI/ComboRect/Combotimer" to="UI/Score" method="_on_combotimer_timeout"]
 [connection signal="timeout" from="UI/CoolRect/CoolnessTimer" to="UI/Score" method="_on_coolness_timer_timeout"]
+[connection signal="pressed" from="PauseMenu/Retry_button/Button" to="PauseMenu/Retry_button/Button" method="_on_pressed"]
+[connection signal="pressed" from="PauseMenu/Main_Menu_button/Button" to="PauseMenu/Main_Menu_button/Button" method="_on_pressed"]
+[connection signal="pressed" from="PauseMenu/Resume" to="PauseMenu/Resume" method="_on_pressed"]
+[connection signal="pressed" from="Death_menu/Retry_button/Button" to="Death_menu/Retry_button/Button" method="_on_pressed"]
+[connection signal="pressed" from="Death_menu/Main_Menu_button/Button" to="Death_menu/Main_Menu_button/Button" method="_on_pressed"]

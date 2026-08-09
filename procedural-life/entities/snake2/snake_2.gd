@@ -7,7 +7,7 @@ extends Node2D
 @onready var collision : CollisionShape2D = $Area2D/CollisionShape2D
 @onready var outline : Line2D = $Outline
 @onready var circle_collision : CollisionShape2D = $Area2D/CollisionShape2D
-
+@onready var death_menu = $"../Death_menu"
 
 var outline_width = 6
 
@@ -114,6 +114,9 @@ func collision_check():
 		collision = false
 		
 func kill(text):
+	
+	death_menu.visible = true 
+	get_tree().paused = true
 	print("SNAKE HAS DIED")
 	print("Cause of death: " + text)
 	#queue_free()

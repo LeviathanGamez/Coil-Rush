@@ -18,6 +18,8 @@ extends Label
 @onready var taken_sfx : AudioStreamPlayer2D = $Taken
 @onready var eaten_sfx : AudioStreamPlayer2D = $Eaten
 
+@onready var death_label : Label = $"../../Death_menu/Resume3"
+
 var tween : Tween
 	
 var artifact_worth : int = 1000
@@ -33,7 +35,8 @@ func _process(_delta):
 			artifact.take.connect(change_combo)
 		
 	text = "Score: " + str(int(Manager.score))
-	combo_label.text = "Combo: X" + str(Manager.combo)
+	death_label.text = "Final Score: " + str(int(Manager.score))
+	combo_label.text = "Combo: X" + str(int(Manager.combo))
 	combo_rect.size.x = combo_label.size.x + 28
 	combo_rect2.size.x = combo_rect.size.x * (combo_timer.time_left/ combo_timer.wait_time)
 	cool_rect.size.x = cool_label.size.x + 28

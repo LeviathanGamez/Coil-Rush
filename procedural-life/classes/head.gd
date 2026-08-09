@@ -10,6 +10,8 @@ var speed : float = 60 * Manager.speed
 var count := 0
 var big_radius := 350
 var eye_closeness := 1.5
+var x_bound = 1660/2
+var y_bound = 1020/2
 
 var new_direction
 var last_mouse_pos : Vector2
@@ -38,9 +40,9 @@ func update(mouse_pos : Vector2, delta):
 	#var target_position = mouse_pos - direction * distance
 	#position += (target_position-position) * mouse_lerp
 	position += direction * speed * delta
-	if position.x > 576 or position.x < -576:
+	if position.x > x_bound or position.x < -x_bound:
 		kill()
-	if position.y > 324 or position.y < -324:
+	if position.y > y_bound or position.y < -y_bound:
 		kill()
 		
 func kill():
