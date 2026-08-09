@@ -5,6 +5,7 @@ extends Label
 @onready var coolness_timer : Timer = $"../CoolRect/CoolnessTimer"
 @onready var snake = $"../../snake2"
 @onready var combo_label = $"../ComboRect/Combo"
+@onready var cool_label= $"../CoolRect/Coolness"
 
 @onready var combo_rect : ColorRect = $"../ComboRect"
 @onready var combo_rect2 : ColorRect = $"../ComboRect2"
@@ -33,6 +34,7 @@ func _process(_delta):
 	combo_label.text = "Combo: X" + str(Manager.combo)
 	combo_rect.size.x = combo_label.size.x + 28
 	combo_rect2.size.x = combo_rect.size.x * (combo_timer.time_left/ combo_timer.wait_time)
+	cool_rect.size.x = cool_label.size.x + 28
 	cool_rect2.size.x = cool_rect.size.x * (coolness_timer.time_left/coolness_timer.wait_time)
 
 func change_score(value):
@@ -54,8 +56,10 @@ func expand():
 	tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(self, "scale", Vector2(1.5,1.5), 0.1)
+	tween.parallel().tween_property(self, "modulate", Color(1,0,0,1), 0.1)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "scale", Vector2.ONE, 2).set_delay(0.1)
+	tween.parallel().tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 1.0), 2)
 	
 	
 func _on_combotimer_timeout() -> void:

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b5oqvqf4cl020" path="res://scripts/difficulty.gd" id="1_85g3d"]
 [ext_resource type="PackedScene" uid="uid://chb7he2my5eub" path="res://entities/snake2/snake_2.tscn" id="1_o5qli"]
 [ext_resource type="Shader" uid="uid://ccc1kjvjx8j2m" path="res://shaders/twirl.gdshader" id="2_0wfyh"]
+[ext_resource type="AudioStream" uid="uid://dpnqj0iqbjxe3" path="res://assets/fire_upgraded.MP3" id="2_choun"]
 [ext_resource type="PackedScene" uid="uid://c2m23uudgmpow" path="res://fruits/scenes/orange.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://lxbcrx4efoj0" path="res://fruits/scenes/cactus_fruit.tscn" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dr5hq35q03afq" path="res://fruits/scenes/prickly_pear.tscn" id="5_o6xl0"]
@@ -36,8 +37,11 @@ wait_time = 10.0
 autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Difficulty" unique_id=1277757563]
+stream = ExtResource("2_choun")
+max_polyphony = 2
 
 [node name="ColorRect" type="ColorRect" parent="Difficulty" unique_id=935067013]
+visible = false
 z_index = 2000
 offset_left = -1524.0
 offset_top = -1052.0
@@ -88,6 +92,7 @@ offset_left = -214.0
 offset_top = -500.0
 offset_right = 214.0
 offset_bottom = -416.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_tefeu")
 theme_override_font_sizes/font_size = 80
 text = "Score: 1000"
@@ -101,7 +106,7 @@ layout_mode = 0
 offset_left = -823.0
 offset_top = -518.0
 offset_right = -546.0
-offset_bottom = -462.0
+offset_bottom = -444.0
 color = Color(0.5921569, 0.5921569, 0.5921569, 0.654902)
 
 [node name="Combo" type="Label" parent="UI/ComboRect" unique_id=1426192053]
@@ -113,7 +118,7 @@ offset_top = -1.0
 offset_right = 261.0
 offset_bottom = 259.0
 theme_override_fonts/font = ExtResource("6_tefeu")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 80
 text = "Combo X1"
 
 [node name="Combotimer" type="Timer" parent="UI/ComboRect" unique_id=383677483]
@@ -127,16 +132,16 @@ layout_mode = 0
 offset_left = -823.0
 offset_top = -518.0
 offset_right = -579.0
-offset_bottom = -462.0
+offset_bottom = -444.0
 color = Color(0.99215686, 0.039215688, 0.81960785, 0.654902)
 
 [node name="CoolRect" type="ColorRect" parent="UI" unique_id=592377246]
 z_index = 2
 layout_mode = 0
 offset_left = -823.0
-offset_top = -462.0
+offset_top = -444.0
 offset_right = -525.0
-offset_bottom = -408.0
+offset_bottom = -372.0
 color = Color(0.18431373, 0.99215686, 0.22352941, 0.654902)
 
 [node name="Coolness" type="Label" parent="UI/CoolRect" unique_id=921673580]
@@ -144,25 +149,24 @@ z_index = 12
 z_as_relative = false
 layout_mode = 0
 offset_left = 22.0
-offset_top = -1.0
-offset_right = 261.0
-offset_bottom = 259.0
+offset_right = 374.0
+offset_bottom = 260.0
 theme_override_fonts/font = ExtResource("6_tefeu")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 80
 text = "Coolness"
 
 [node name="CoolnessTimer" type="Timer" parent="UI/CoolRect" unique_id=1268477617]
-wait_time = 8.0
+wait_time = 9.0
 one_shot = true
 autostart = true
 
 [node name="CoolRect2" type="ColorRect" parent="UI" unique_id=442490102]
 z_index = 2
 layout_mode = 0
-offset_left = -823.0
-offset_top = -462.0
-offset_right = -526.0
-offset_bottom = -408.0
+offset_left = -824.0
+offset_top = -444.0
+offset_right = -527.0
+offset_bottom = -372.0
 color = Color(0.019607844, 0.9098039, 1, 0.654902)
 
 [connection signal="timeout" from="Difficulty/Timer" to="Difficulty" method="_on_timer_timeout"]

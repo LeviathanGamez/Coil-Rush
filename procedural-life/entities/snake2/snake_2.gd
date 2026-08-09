@@ -103,7 +103,7 @@ func collision_check():
 	if collision:
 		Manager.combo = 1
 		
-		print("co",color1)
+	
 		body.material.set_shader_parameter("Color1", Color("#fb1818"))
 		body.material.set_shader_parameter("Color2", Color("#fb1818"))
 		body.material.set_shader_parameter("Color3", Color("#fb1818"))
