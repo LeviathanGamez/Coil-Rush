@@ -20,12 +20,19 @@ var head : Head
 var colors : Array = [Color.RED,Color.ORANGE,Color.YELLOW,Color.GREEN,Color.CYAN,Color.BLUE,Color.PURPLE,Color.DEEP_PINK]
 var eyeball_movement = 0.007
 
+var color1
+var color2 
+var color3
+
 func _ready() -> void:
 	head = Head.new(Vector2(0,0),radius)
 	head.death.connect(kill.bind("exited boundry of map"))
 	make_joints()
 	Manager.make_more_joints.connect(make_joints)
 	collision.shape.radius = int(radius)
+	color1 = body.material.get_shader_parameter("Color1")
+	color2 = body.material.get_shader_parameter("Color2")
+	color3 = body.material.get_shader_parameter("Color3")
 	
 	
 func make_joints():
@@ -95,6 +102,15 @@ func collision_check():
 	
 	if collision:
 		Manager.combo = 1
+		
+		print("co",color1)
+		body.material.set_shader_parameter("Color1", Color("#fb1818"))
+		body.material.set_shader_parameter("Color2", Color("#fb1818"))
+		body.material.set_shader_parameter("Color3", Color("#fb1818"))
+		await get_tree().create_timer(0.2).timeout
+		body.material.set_shader_parameter("Color1", color1)
+		body.material.set_shader_parameter("Color2", color2)
+		body.material.set_shader_parameter("Color3", color3)
 		collision = false
 		
 func kill(text):

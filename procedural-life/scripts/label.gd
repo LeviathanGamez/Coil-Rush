@@ -14,6 +14,13 @@ extends Label
 @onready var fruit_node : Node = $"../../Fruits"
 @onready var artifact_node : Node = $"../../Artifacts"
 
+
+var tween : Tween
+	
+var artifact_worth : int = 1000
+
+func _ready():
+	pivot_offset = size / 2
 func _process(_delta):
 	for fruit in fruit_node.get_children():
 		if not fruit.eat.is_connected(change_score):
@@ -27,14 +34,30 @@ func _process(_delta):
 	combo_rect.size.x = combo_label.size.x + 28
 	combo_rect2.size.x = combo_rect.size.x * (combo_timer.time_left/ combo_timer.wait_time)
 	cool_rect2.size.x = cool_rect.size.x * (coolness_timer.time_left/coolness_timer.wait_time)
+
 func change_score(value):
 	Manager.score += value * Manager.combo
 	coolness_timer.start()
+	expand()
+
+
 	
 func change_combo(value):
 	Manager.combo += value
+	Manager.score += artifact_worth * Manager.combo
 	combo_timer.start()
-
+	expand()
+	
+func expand():
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property(self, "scale", Vector2(1.5,1.5), 0.1)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", Vector2.ONE, 2).set_delay(0.1)
+	
+	
 func _on_combotimer_timeout() -> void:
 	Manager.combo = 1
 
