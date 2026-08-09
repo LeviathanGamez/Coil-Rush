@@ -22,6 +22,7 @@ var eyeball_movement = 0.007
 
 func _ready() -> void:
 	head = Head.new(Vector2(0,0),radius)
+	head.death.connect(kill.bind("exited boundry of map"))
 	make_joints()
 	Manager.make_more_joints.connect(make_joints)
 	collision.shape.radius = int(radius)
@@ -79,12 +80,24 @@ func draw_points():
 
 func collision_check():
 	var collision
+	var problem 
+	var a
+	var b
 	for joint in joints:
-		if joint.position.distance_squared_to(head.position) < radius * radius+5:
+		if joint == head:
+			continue
+		a = joint.position.distance_squared_to(head.position)+5
+		b = Manager.distance * Manager.distance
+		if a < b:
 			collision = true
+			problem = joint
+			break
 	
-	#if collision:
-	#	print("s")
-func kill():
+	if collision:
+		Manager.combo = 1
+		collision = false
+		
+func kill(text):
 	print("SNAKE HAS DIED")
+	print("Cause of death: " + text)
 	#queue_free()

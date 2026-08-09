@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://nvg7ivuqvgdp"]
+
+[ext_resource type="Script" uid="uid://bwv5nk2qpnoqt" path="res://artifacts/artifact.gd" id="1_cni7s"]
+[ext_resource type="Shader" uid="uid://b7foah827nwbh" path="res://shaders/outline.gdshader" id="2_b4tsj"]
+[ext_resource type="Resource" uid="uid://bykmc0egi7mek" path="res://artifacts/resources/coin.tres" id="2_rckx4"]
+[ext_resource type="Texture2D" uid="uid://dpyoqb71df5op" path="res://artifacts/assets/coin.png" id="2_vjo6o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b4tsj"]
+resource_local_to_scene = true
+shader = ExtResource("2_b4tsj")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/corner_pixel = true
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3381y"]
+radius = 27.0
+height = 56.0
+
+[node name="coin" type="Node2D" unique_id=630821028 groups=["Artifacts"]]
+script = ExtResource("1_cni7s")
+stats = ExtResource("2_rckx4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1352449754]
+material = SubResource("ShaderMaterial_b4tsj")
+scale = Vector2(2, 2)
+texture = ExtResource("2_vjo6o")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2059415997]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1101219714]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_3381y")

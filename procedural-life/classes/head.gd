@@ -13,7 +13,7 @@ var eye_closeness := 1.5
 
 var new_direction
 var last_mouse_pos : Vector2
-
+signal death
 func _init(pos: Vector2, radi: float):
 	position = pos
 	Manager.make_more_joints.connect(update_vairables)
@@ -44,7 +44,7 @@ func update(mouse_pos : Vector2, delta):
 		kill()
 		
 func kill():
-	print("im dead")
+	emit_signal("death")
 	
 func get_sides() -> Array[Vector2]:
 	

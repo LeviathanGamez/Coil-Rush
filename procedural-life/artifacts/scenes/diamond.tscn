@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ctbojk2vyvpck"]
+
+[ext_resource type="Shader" uid="uid://b7foah827nwbh" path="res://shaders/outline.gdshader" id="1_a60ts"]
+[ext_resource type="Script" uid="uid://bwv5nk2qpnoqt" path="res://artifacts/artifact.gd" id="1_kbhjo"]
+[ext_resource type="Resource" uid="uid://o4laeqcfqvv0" path="res://artifacts/resources/diamond.tres" id="2_kd4fm"]
+[ext_resource type="Texture2D" uid="uid://bi4c7mbnpi40y" path="res://artifacts/assets/diamond.png" id="2_lrr0h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3381y"]
+resource_local_to_scene = true
+shader = ExtResource("1_a60ts")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/corner_pixel = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pv2d"]
+radius = 31.0
+
+[node name="diamond" type="Node2D" unique_id=1844142123 groups=["Artifacts"]]
+script = ExtResource("1_kbhjo")
+stats = ExtResource("2_kd4fm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2049282268]
+material = SubResource("ShaderMaterial_3381y")
+scale = Vector2(2, 2)
+texture = ExtResource("2_lrr0h")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1207576778]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1143593622]
+shape = SubResource("CircleShape2D_6pv2d")

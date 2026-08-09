@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Artifact_Type" format=3 uid="uid://cko6fm7uei7o1"]
+
+[ext_resource type="Script" uid="uid://cxdgiouagkgdd" path="res://artifacts/resources/articfact_type.gd" id="1_2towp"]
+
+[resource]
+script = ExtResource("1_2towp")
+type = 2
+combo_plus = 0.5
+rareness = 1.0
+metadata/_custom_type_script = "uid://cxdgiouagkgdd"

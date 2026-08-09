@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://chb7he2my5eub" path="res://entities/snake2/snake_2.tscn" id="1_o5qli"]
 [ext_resource type="Shader" uid="uid://ccc1kjvjx8j2m" path="res://shaders/twirl.gdshader" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://c2m23uudgmpow" path="res://fruits/orange.tscn" id="3_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://lxbcrx4efoj0" path="res://fruits/cactus_fruit.tscn" id="4_tefeu"]
-[ext_resource type="PackedScene" uid="uid://dr5hq35q03afq" path="res://fruits/prickly_pear.tscn" id="5_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://c2m23uudgmpow" path="res://fruits/scenes/orange.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://lxbcrx4efoj0" path="res://fruits/scenes/cactus_fruit.tscn" id="4_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dr5hq35q03afq" path="res://fruits/scenes/prickly_pear.tscn" id="5_o6xl0"]
 [ext_resource type="Script" uid="uid://qkcur6q4ddkw" path="res://scripts/spawner.gd" id="6_o6xl0"]
 [ext_resource type="FontFile" uid="uid://b80ns8fksh5q" path="res://assets/ARCADECLASSIC.TTF" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://b4ffcybwm5012" path="res://scripts/label.gd" id="8_tipki"]
@@ -37,6 +37,8 @@ position = Vector2(-191, -167)
 
 [node name="prickly_pear" parent="Fruits" unique_id=1049163394 instance=ExtResource("5_o6xl0")]
 position = Vector2(-224, 148)
+
+[node name="Artifacts" type="Node" parent="." unique_id=1715580729]
 
 [node name="snake2" parent="." unique_id=274647588 instance=ExtResource("1_o5qli")]
 z_index = 10
@@ -95,7 +97,7 @@ theme_override_font_sizes/font_size = 60
 text = "Combo X1"
 
 [node name="Combotimer" type="Timer" parent="UI/ComboRect" unique_id=383677483]
-wait_time = 8.0
+wait_time = 10.0
 one_shot = true
 autostart = true
 
@@ -130,7 +132,7 @@ theme_override_font_sizes/font_size = 60
 text = "Coolness"
 
 [node name="CoolnessTimer" type="Timer" parent="UI/CoolRect" unique_id=1268477617]
-wait_time = 6.0
+wait_time = 8.0
 one_shot = true
 autostart = true
 

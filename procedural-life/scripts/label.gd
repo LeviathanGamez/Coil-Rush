@@ -11,10 +11,17 @@ extends Label
 
 @onready var cool_rect : ColorRect = $"../CoolRect"
 @onready var cool_rect2 : ColorRect = $"../CoolRect2"
+@onready var fruit_node : Node = $"../../Fruits"
+@onready var artifact_node : Node = $"../../Artifacts"
 
 func _process(_delta):
-	for fruit in $"../../Fruits".get_children():
-		fruit.eat.connect(change_score)
+	for fruit in fruit_node.get_children():
+		if not fruit.eat.is_connected(change_score):
+			fruit.eat.connect(change_score)
+	for artifact in artifact_node.get_children():
+		if not artifact.take.is_connected(change_combo):
+			artifact.take.connect(change_combo)
+		
 	text = "Score: " + str(int(Manager.score))
 	combo_label.text = "Combo: X" + str(Manager.combo)
 	combo_rect.size.x = combo_label.size.x + 28
@@ -23,10 +30,9 @@ func _process(_delta):
 func change_score(value):
 	Manager.score += value * Manager.combo
 	coolness_timer.start()
-	change_combo()
 	
-func change_combo():
-	Manager.combo += 0.2
+func change_combo(value):
+	Manager.combo += value
 	combo_timer.start()
 
 func _on_combotimer_timeout() -> void:
@@ -34,4 +40,4 @@ func _on_combotimer_timeout() -> void:
 
 
 func _on_coolness_timer_timeout() -> void:
-	snake.kill()
+	snake.kill("timeout")
