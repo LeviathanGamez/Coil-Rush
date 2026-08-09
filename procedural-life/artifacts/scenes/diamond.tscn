@@ -8,7 +8,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3381y"]
 resource_local_to_scene = true
 shader = ExtResource("1_a60ts")
-shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/corner_pixel = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6pv2d"]

@@ -1,0 +1,299 @@
+[gd_scene format=3 uid="uid://dbta7edebapbf"]
+
+[ext_resource type="Texture2D" uid="uid://dpyoqb71df5op" path="res://artifacts/assets/coin.png" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://b80ns8fksh5q" path="res://assets/ARCADECLASSIC.TTF" id="2_bqqt6"]
+[ext_resource type="Shader" uid="uid://ccc1kjvjx8j2m" path="res://shaders/twirl.gdshader" id="3_bqqt6"]
+[ext_resource type="Shader" uid="uid://t7u2sn45ld18" path="res://shaders/tiles.gdshader" id="4_8ln24"]
+[ext_resource type="Texture2D" uid="uid://dnlv2j236ya3" path="res://assets/backgroundtile.png" id="4_wu84c"]
+[ext_resource type="Script" uid="uid://cpoiwchamold6" path="res://scripts/play_button.gd" id="6_oa1go"]
+[ext_resource type="Script" uid="uid://d4kms5mhjk3ce" path="res://scripts/quit_button.gd" id="7_tbmy8"]
+[ext_resource type="Script" uid="uid://jelmwfreqvb7" path="res://scripts/tutorial_button.gd" id="8_j7ex8"]
+[ext_resource type="FontFile" uid="uid://ccjne7mb80vxe" path="res://assets/Jersey10-Regular copy 2.ttf" id="8_tbmy8"]
+[ext_resource type="PackedScene" uid="uid://c2m23uudgmpow" path="res://fruits/scenes/orange.tscn" id="9_lgwnu"]
+[ext_resource type="PackedScene" uid="uid://lxbcrx4efoj0" path="res://fruits/scenes/cactus_fruit.tscn" id="10_flqon"]
+[ext_resource type="PackedScene" uid="uid://dr5hq35q03afq" path="res://fruits/scenes/prickly_pear.tscn" id="11_rcqid"]
+[ext_resource type="Texture2D" uid="uid://ba3fxefr8gujh" path="res://assets/snake.png" id="12_flqon"]
+[ext_resource type="PackedScene" uid="uid://ctbojk2vyvpck" path="res://artifacts/scenes/diamond.tscn" id="13_7b55j"]
+[ext_resource type="PackedScene" uid="uid://dvmnhm81wxxtt" path="res://artifacts/scenes/golden_scarab.tscn" id="14_5pajh"]
+[ext_resource type="PackedScene" uid="uid://nvg7ivuqvgdp" path="res://artifacts/scenes/coin.tscn" id="15_j7ex8"]
+[ext_resource type="Script" uid="uid://r8t7jw6re4lx" path="res://scripts/x_button.gd" id="16_5pajh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wu84c"]
+shader = ExtResource("3_bqqt6")
+shader_parameter/strength = 786.0
+shader_parameter/pivot = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_o5qli"]
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0, 0.50751877, 1)
+colors = PackedColorArray(0.9529412, 0.6117647, 0.07058824, 1, 0.93333334, 0.654902, 0.09411765, 0.94509804, 0.93359375, 0.66912585, 0.07658386, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8ln24"]
+gradient = SubResource("Gradient_o5qli")
+width = 1000
+height = 1000
+repeat = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ln24"]
+shader = ExtResource("4_8ln24")
+shader_parameter/strength = 0.20000000298024
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3381y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oa1go"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jk1qb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lgwnu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dd4i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flqon"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3381y"]
+bg_color = Color(0.84705883, 0.36862746, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 9
+
+[node name="MainMenu" type="Control" unique_id=279124206]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=589267085]
+z_index = -1
+material = SubResource("ShaderMaterial_wu84c")
+layout_mode = 0
+offset_left = -5.0
+offset_top = -157.0
+offset_right = 1148.0
+offset_bottom = 843.0
+texture = SubResource("GradientTexture2D_8ln24")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1092516151]
+anchor_mode = 0
+
+[node name="Title" type="Control" parent="." unique_id=1373232770]
+z_index = 6
+anchors_preset = 0
+offset_left = 33.0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Title" unique_id=120259412]
+position = Vector2(517, 183.00002)
+scale = Vector2(3, 3)
+texture = ExtResource("1_ekxnf")
+
+[node name="Label" type="Label" parent="Title" unique_id=363024260]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 118.0
+offset_right = 677.0
+offset_bottom = 365.0
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 120
+text = " C    IL
+RUSH"
+
+[node name="Tiles" type="TextureRect" parent="." unique_id=1832439527]
+material = SubResource("ShaderMaterial_8ln24")
+layout_mode = 0
+offset_top = -31.0
+offset_right = 570.0
+offset_bottom = 391.0
+scale = Vector2(2, 2)
+texture = ExtResource("4_wu84c")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=2095411726]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 684.0
+offset_right = 731.0
+offset_bottom = 747.0
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 38
+text = "Made By: Leviathan_Games"
+
+[node name="Play_button" type="Control" parent="." unique_id=633297234]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Play_button" unique_id=855732433]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 369.0
+offset_right = 637.0
+offset_bottom = 438.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 10
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3381y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jk1qb")
+text = "Play"
+script = ExtResource("6_oa1go")
+
+[node name="Quit_button" type="Control" parent="." unique_id=1047116573]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Quit_button" unique_id=1272828910]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 550.0
+offset_right = 637.0
+offset_bottom = 619.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 10
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3381y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lgwnu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5dd4i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_flqon")
+text = "Quit"
+script = ExtResource("7_tbmy8")
+
+[node name="Tutorial_button" type="Control" parent="." unique_id=882317054]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Tutorial_button" unique_id=470567409]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 458.0
+offset_right = 702.0
+offset_bottom = 527.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 10
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3381y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lgwnu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5dd4i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_flqon")
+text = "Tutorial"
+script = ExtResource("8_j7ex8")
+
+[node name="Tutorial" type="Control" parent="." unique_id=1359729449]
+visible = false
+z_index = 1000
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Tutorial" unique_id=1255730017]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 28.0
+offset_right = 1108.0
+offset_bottom = 674.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3381y")
+
+[node name="Label" type="Label" parent="Tutorial" unique_id=977918039]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 22.0
+offset_right = 879.0
+offset_bottom = 269.0
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("8_tbmy8")
+theme_override_font_sizes/font_size = 100
+text = "Tutorial:"
+
+[node name="Label2" type="Label" parent="Tutorial" unique_id=2063966133]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 125.0
+offset_right = 1004.0
+offset_bottom = 605.0
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("8_tbmy8")
+theme_override_font_sizes/font_size = 60
+text = "Collect Objects to earn points!
+
+Eat fruits to increase coolness
+If your coolness drops you'll dry out!
+
+Pick up artifacts to increase your combo!
+If you hit yourself your combo will reset"
+
+[node name="control" type="Control" parent="Tutorial" unique_id=1417554354]
+anchors_preset = 0
+
+[node name="orange" parent="Tutorial/control" unique_id=1414971797 instance=ExtResource("9_lgwnu")]
+z_index = 1005
+z_as_relative = false
+position = Vector2(849, 284)
+
+[node name="cactus_fruit" parent="Tutorial/control" unique_id=608758165 instance=ExtResource("10_flqon")]
+z_index = 1005
+z_as_relative = false
+position = Vector2(999, 260)
+
+[node name="prickly_pear" parent="Tutorial/control" unique_id=1049163394 instance=ExtResource("11_rcqid")]
+z_index = 1005
+z_as_relative = false
+position = Vector2(959, 377)
+
+[node name="Snake" type="Sprite2D" parent="Tutorial/control" unique_id=1814854348]
+z_index = 1010
+position = Vector2(624.00006, 143.00002)
+rotation = -1.8018861
+texture = ExtResource("12_flqon")
+
+[node name="diamond" parent="Tutorial/control" unique_id=1844142123 instance=ExtResource("13_7b55j")]
+z_index = 1003
+position = Vector2(1057, 555)
+
+[node name="golden_scarab" parent="Tutorial/control" unique_id=1413787820 instance=ExtResource("14_5pajh")]
+z_index = 1003
+position = Vector2(1007, 482)
+
+[node name="coin" parent="Tutorial/control" unique_id=630821028 instance=ExtResource("15_j7ex8")]
+z_index = 1003
+position = Vector2(976, 603)
+
+[node name="X_button" type="Control" parent="Tutorial" unique_id=1064348157]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Tutorial/X_button" unique_id=118045451]
+layout_mode = 0
+offset_left = 958.0
+offset_top = 41.0
+offset_right = 1098.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3381y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jk1qb")
+text = "X"
+script = ExtResource("16_5pajh")
+
+[connection signal="pressed" from="Play_button/Button" to="Play_button/Button" method="_on_pressed"]
+[connection signal="pressed" from="Quit_button/Button" to="Quit_button/Button" method="_on_pressed"]
+[connection signal="pressed" from="Tutorial_button/Button" to="Tutorial_button/Button" method="_on_pressed"]
+[connection signal="pressed" from="Tutorial/X_button/Button" to="Tutorial/X_button/Button" method="_on_pressed"]

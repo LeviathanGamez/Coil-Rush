@@ -39,6 +39,7 @@ func _process(_delta):
 		fruit.global_position = position
 		fruit_node.add_child(fruit)
 		can_trigger = true
+		
 	if get_tree().get_nodes_in_group("Artifacts").size() < 2 and can_trigger2:
 		can_trigger2 = false
 		old_artifact = artifact

@@ -16,12 +16,13 @@ func _ready():
 	var err = area2d.area_entered.connect(eaten)
 
 func _process(_delta):
-	var snake_body = snake.get_node("body")
-	if global_position.distance_to(snake_body.to_global(snake_body.points[0])) > 100:
-		sprite.material.set_shader_parameter("outline_color", Color(0.0, 0.131, 0.301, 1.0))
-	else:
-		sprite.material.set_shader_parameter("outline_color", Color(1, 1, 1, 1))
-		 
+	if snake != null:
+		var snake_body = snake.get_node("body")
+		if global_position.distance_to(snake_body.to_global(snake_body.points[0])) > 100:
+			sprite.material.set_shader_parameter("outline_color", Color(0.0, 0.131, 0.301, 1.0))
+		else:
+			sprite.material.set_shader_parameter("outline_color", Color(1, 1, 1, 1))
+			 
 
 func eaten(area: Area2D):
 	if area.get_parent().name == "snake2":

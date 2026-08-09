@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://f7on4efpspj6"]
+
+[ext_resource type="AudioStream" uid="uid://cxmpynii8vbft" path="res://assets/hitslab-egyptian-egypt-desert-music-502005.mp3" id="1_nbeep"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=2108496652]
+stream = ExtResource("1_nbeep")
+volume_db = -5.0
+autoplay = true
