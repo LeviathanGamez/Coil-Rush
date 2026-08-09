@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ccjne7mb80vxe"
-path="res://.godot/imported/Jersey10-Regular copy 2.ttf-dcdc646da9564f45b3bed1016bfc291c.fontdata"
+uid="uid://b80ns8fksh5q"
+path="res://.godot/imported/ARCADECLASSIC.TTF-d3d36b55fa7b5c3e035f0e4fcc976cb7.fontdata"
 
 [deps]
 
-source_file="res://assets/Jersey10-Regular copy 2.ttf"
-dest_files=["res://.godot/imported/Jersey10-Regular copy 2.ttf-dcdc646da9564f45b3bed1016bfc291c.fontdata"]
+source_file="res://assets/fonts/ARCADECLASSIC.TTF"
+dest_files=["res://.godot/imported/ARCADECLASSIC.TTF-d3d36b55fa7b5c3e035f0e4fcc976cb7.fontdata"]
 
 [params]
 

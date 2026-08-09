@@ -19,7 +19,6 @@ func _ready():
 	color_rect.visible = true
 	
 func _on_timer_timeout() -> void:
-	timer.wait_time += 15
 	timer.start()
 	times += 1
 	decrease_time()

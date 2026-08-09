@@ -15,6 +15,8 @@ extends Label
 @onready var fruit_node : Node = $"../../Fruits"
 @onready var artifact_node : Node = $"../../Artifacts"
 
+@onready var taken_sfx : AudioStreamPlayer2D = $Taken
+@onready var eaten_sfx : AudioStreamPlayer2D = $Eaten
 
 var tween : Tween
 	
@@ -41,6 +43,8 @@ func change_score(value):
 	Manager.score += value * Manager.combo
 	coolness_timer.start()
 	expand()
+	eaten_sfx.pitch_scale = randf_range(0.9, 1.1)
+	eaten_sfx.play()
 
 
 	
@@ -49,6 +53,8 @@ func change_combo(value):
 	Manager.score += artifact_worth * Manager.combo
 	combo_timer.start()
 	expand()
+	taken_sfx.pitch_scale = randf_range(0.9, 1.1)
+	taken_sfx.play()
 	
 func expand():
 	if tween:

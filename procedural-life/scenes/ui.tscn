@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://jxhjtm7e6lsj"]
 
-[ext_resource type="FontFile" uid="uid://b80ns8fksh5q" path="res://assets/ARCADECLASSIC.TTF" id="1_x4jx1"]
+[ext_resource type="FontFile" uid="uid://b80ns8fksh5q" path="res://assets/fonts/ARCADECLASSIC.TTF" id="1_x4jx1"]
 [ext_resource type="Script" uid="uid://b4ffcybwm5012" path="res://scripts/label.gd" id="2_yev5y"]
 
 [node name="UI" type="Control" unique_id=662527450]
