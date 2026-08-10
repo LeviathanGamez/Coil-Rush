@@ -307,6 +307,7 @@ text = "Game Paused"
 
 [node name="Death_menu" type="Control" parent="." unique_id=1753686635]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -1.0

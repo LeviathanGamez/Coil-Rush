@@ -207,8 +207,10 @@ script = ExtResource("8_j7ex8")
 visible = false
 z_index = 1000
 anchors_preset = 0
-offset_right = 40.0
+offset_left = -30.0
+offset_right = 10.0
 offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
 
 [node name="Panel" type="Panel" parent="Tutorial" unique_id=1255730017]
 layout_mode = 0
