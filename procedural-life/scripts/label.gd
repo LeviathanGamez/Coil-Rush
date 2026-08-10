@@ -36,7 +36,7 @@ func _process(_delta):
 		
 	text = "Score: " + str(int(Manager.score))
 	death_label.text = "Final Score: " + str(int(Manager.score))
-	combo_label.text = "Combo: X" + str(int(Manager.combo))
+	combo_label.text = "Combo: X" + str(round(Manager.combo*10)/10)
 	combo_rect.size.x = combo_label.size.x + 28
 	combo_rect2.size.x = combo_rect.size.x * (combo_timer.time_left/ combo_timer.wait_time)
 	cool_rect.size.x = cool_label.size.x 
