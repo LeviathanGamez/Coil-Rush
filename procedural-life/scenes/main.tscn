@@ -307,7 +307,6 @@ text = "Game Paused"
 
 [node name="Death_menu" type="Control" parent="." unique_id=1753686635]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -1.0
@@ -401,7 +400,7 @@ offset_bottom = -81.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
 theme_override_constants/outline_size = 0
-theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_fonts/font = ExtResource("9_jbj1t")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eb6dy")
 text = "Final Score: 0"
