@@ -39,7 +39,7 @@ func _process(_delta):
 	combo_label.text = "Combo: X" + str(int(Manager.combo))
 	combo_rect.size.x = combo_label.size.x + 28
 	combo_rect2.size.x = combo_rect.size.x * (combo_timer.time_left/ combo_timer.wait_time)
-	cool_rect.size.x = cool_label.size.x + 28
+	cool_rect.size.x = cool_label.size.x 
 	cool_rect2.size.x = cool_rect.size.x * (coolness_timer.time_left/coolness_timer.wait_time)
 
 func change_score(value):

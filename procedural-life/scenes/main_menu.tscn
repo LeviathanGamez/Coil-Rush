@@ -67,22 +67,20 @@ anchors_preset = 0
 z_index = -1
 material = SubResource("ShaderMaterial_wu84c")
 layout_mode = 0
-offset_left = -5.0
-offset_top = -157.0
-offset_right = 1148.0
-offset_bottom = 843.0
+offset_left = -9.0
+offset_top = -44.0
+offset_right = 1661.0
+offset_bottom = 1049.0
 texture = SubResource("GradientTexture2D_8ln24")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1092516151]
-anchor_mode = 0
 
 [node name="Title" type="Control" parent="." unique_id=1373232770]
 z_index = 6
 anchors_preset = 0
-offset_left = 33.0
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 28.0
+offset_top = -27.0
+offset_right = 35.0
+offset_bottom = 33.0
+scale = Vector2(1.5, 1.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Title" unique_id=120259412]
 position = Vector2(517, 183.00002)
@@ -104,34 +102,38 @@ RUSH"
 [node name="Tiles" type="TextureRect" parent="." unique_id=1832439527]
 material = SubResource("ShaderMaterial_8ln24")
 layout_mode = 0
-offset_top = -31.0
-offset_right = 570.0
-offset_bottom = 391.0
-scale = Vector2(2, 2)
+offset_left = -10.0
+offset_top = -85.0
+offset_right = 546.6667
+offset_bottom = 296.33334
+scale = Vector2(3, 3)
 texture = ExtResource("4_wu84c")
 stretch_mode = 1
 
 [node name="Label" type="Label" parent="." unique_id=2095411726]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 684.0
-offset_right = 731.0
-offset_bottom = 747.0
-theme_override_fonts/font = ExtResource("2_bqqt6")
-theme_override_font_sizes/font_size = 38
+offset_left = 13.0
+offset_top = 963.0
+offset_right = 739.0
+offset_bottom = 1029.0
+theme_override_fonts/font = ExtResource("8_tbmy8")
+theme_override_font_sizes/font_size = 60
 text = "Made By: Leviathan_Games"
 
 [node name="Play_button" type="Control" parent="." unique_id=633297234]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 261.0
+offset_top = 88.0
+offset_right = 301.0
+offset_bottom = 128.0
 
 [node name="Button" type="Button" parent="Play_button" unique_id=855732433]
 layout_mode = 0
-offset_left = 497.0
-offset_top = 369.0
-offset_right = 637.0
-offset_bottom = 438.0
+offset_left = 455.0
+offset_top = 452.00003
+offset_right = 595.0
+offset_bottom = 521.0
+scale = Vector2(1.5, 1.5)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
@@ -147,15 +149,18 @@ script = ExtResource("6_oa1go")
 
 [node name="Quit_button" type="Control" parent="." unique_id=1047116573]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 261.0
+offset_top = 88.0
+offset_right = 301.0
+offset_bottom = 128.0
 
 [node name="Button" type="Button" parent="Quit_button" unique_id=1272828910]
 layout_mode = 0
-offset_left = 497.0
-offset_top = 550.0
-offset_right = 637.0
-offset_bottom = 619.0
+offset_left = 465.0
+offset_top = 712.0
+offset_right = 605.0
+offset_bottom = 781.0
+scale = Vector2(1.5, 1.5)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
@@ -172,15 +177,18 @@ script = ExtResource("7_tbmy8")
 
 [node name="Tutorial_button" type="Control" parent="." unique_id=882317054]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 261.0
+offset_top = 88.0
+offset_right = 301.0
+offset_bottom = 128.0
 
 [node name="Button" type="Button" parent="Tutorial_button" unique_id=470567409]
 layout_mode = 0
-offset_left = 438.0
-offset_top = 458.0
-offset_right = 702.0
-offset_bottom = 527.0
+offset_left = 377.0
+offset_top = 577.0
+offset_right = 641.0
+offset_bottom = 646.0
+scale = Vector2(1.5, 1.5)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
@@ -293,6 +301,10 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_oa1go")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_jk1qb")
 text = "X"
 script = ExtResource("16_5pajh")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1092516151]
+anchor_mode = 0
+zoom = Vector2(0.7, 0.7)
 
 [connection signal="pressed" from="Play_button/Button" to="Play_button/Button" method="_on_pressed"]
 [connection signal="pressed" from="Quit_button/Button" to="Quit_button/Button" method="_on_pressed"]

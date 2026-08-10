@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://qkcur6q4ddkw" path="res://scripts/spawner.gd" id="6_o6xl0"]
 [ext_resource type="FontFile" uid="uid://b80ns8fksh5q" path="res://assets/fonts/ARCADECLASSIC.TTF" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://b4ffcybwm5012" path="res://scripts/label.gd" id="8_tipki"]
+[ext_resource type="FontFile" uid="uid://ccjne7mb80vxe" path="res://assets/fonts/Jersey10-Regular copy 2.ttf" id="9_jbj1t"]
 [ext_resource type="AudioStream" uid="uid://b04sg50qe15mh" path="res://assets/sound effects/coin-sfx.MP3" id="11_eb6dy"]
 [ext_resource type="AudioStream" uid="uid://b78vbm15nknc8" path="res://assets/sound effects/munch.MP3" id="12_trceg"]
 [ext_resource type="Script" uid="uid://co7wedrkc8wlj" path="res://scripts/retry_button.gd" id="13_trceg"]
@@ -114,7 +115,7 @@ offset_top = -500.0
 offset_right = 214.0
 offset_bottom = -416.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_fonts/font = ExtResource("9_jbj1t")
 theme_override_font_sizes/font_size = 80
 text = "Score: 0"
 horizontal_alignment = 1
@@ -143,11 +144,11 @@ color = Color(0.5921569, 0.5921569, 0.5921569, 0.654902)
 z_index = 12
 z_as_relative = false
 layout_mode = 0
-offset_left = 22.0
-offset_top = -1.0
-offset_right = 261.0
-offset_bottom = 259.0
-theme_override_fonts/font = ExtResource("6_tefeu")
+offset_left = 21.0
+offset_top = -5.0
+offset_right = 274.0
+offset_bottom = 255.0
+theme_override_fonts/font = ExtResource("9_jbj1t")
 theme_override_font_sizes/font_size = 80
 text = "Combo X1"
 
@@ -178,11 +179,12 @@ color = Color(0.18431373, 0.99215686, 0.22352941, 0.654902)
 z_index = 12
 z_as_relative = false
 layout_mode = 0
-offset_left = 22.0
-offset_right = 374.0
-offset_bottom = 260.0
-theme_override_fonts/font = ExtResource("6_tefeu")
-theme_override_font_sizes/font_size = 80
+offset_left = 34.0
+offset_top = -12.0
+offset_right = 398.0
+offset_bottom = 248.0
+theme_override_fonts/font = ExtResource("9_jbj1t")
+theme_override_font_sizes/font_size = 90
 text = "Coolness"
 
 [node name="CoolnessTimer" type="Timer" parent="UI/CoolRect" unique_id=1268477617]
@@ -382,7 +384,7 @@ offset_bottom = -226.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0.9277344, 0.9277344, 1)
 theme_override_constants/outline_size = 0
-theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_fonts/font = ExtResource("9_jbj1t")
 theme_override_font_sizes/font_size = 140
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eb6dy")
 text = "You died!"
@@ -405,6 +407,13 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_eb6dy")
 text = "Final Score: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1625836543]
+zoom = Vector2(0.7, 0.7)
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [connection signal="timeout" from="Difficulty/Timer" to="Difficulty" method="_on_timer_timeout"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
