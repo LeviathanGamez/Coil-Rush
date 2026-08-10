@@ -1,5 +1,7 @@
 # Coil-Rush
 
+Play Game: https://levithangamez.itch.io/coil-rush
+
 Description:
  A game where you play as a snake stranded in the desert and have to eat to survive and grow longer every bite! The game is inspired by the desertic atmosphere of the Sahara Desert and uses procedural animation with shaders to deliver a vibe of being in an endless sand sea of strands.
 
